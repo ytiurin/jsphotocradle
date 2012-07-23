@@ -1,0 +1,27 @@
+<!doctype html><html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link type="text/css" rel="stylesheet" media="all" href="../skins/default/skin.css" />
+
+<script type="text/javascript" src="../lib/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="../lib/jquery.easing.1.3.js"></script>
+
+<script type="text/javascript" src="jsphotocradle.core.js"></script>
+<script type="text/javascript" src="jsphotocradle.preview.js"></script>
+<script type="text/javascript" src="jsphotocradle.thumbnails.v2.js"></script>
+<script type="text/javascript" src="jsphotocradle.original.js"></script>
+<script type="text/javascript" src="jsphotocradle.preload.js"></script>
+<script type="text/javascript" src="jsphotocradle.service.picasa.js"></script>
+
+</head><body style="background:#aaa;">
+
+<div id="picasa" style="width:480px;height:340px;position:absolute;left:520px;top:90px;"></div>
+
+<script>
+$(function(){
+  $('#picasa').jsphotocradle( { service: 'picasa', user: '118311651370497868284', album: '5689094691554017921' }, { firstImageIndex: 7, borderWeight: 10 } );
+});
+</script>
+
+</body></html>

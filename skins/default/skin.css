@@ -1,0 +1,13 @@
+.jsphotocradle .jsphotocradle-box { background: #fff; border-radius: 4px 4px 4px 4px; box-shadow: 0px 0px 4px #000; }
+
+.jsphotocradle .thumbnails-plane { background: transparent; }
+.jsphotocradle .thumbnails-slider { background: #fff; border-radius: 4px 4px 4px 4px; }
+
+.jsphotocradle .previewControl .control-next { background: url(arr-right.png) no-repeat right center; width: 23px; height: 90px; }
+.jsphotocradle .previewControl .control-prev { background: url(arr-left.png) no-repeat left center; width: 30px; height: 90px; }
+.jsphotocradle .mini .control-next { background: url(arr-right-mini.png) no-repeat left center; width: 24px; height: 30px; }
+.jsphotocradle .mini .control-prev { background: url(arr-left-mini.png) no-repeat right center; width: 24px; height: 30px; }
+.jsphotocradle .originalControl .control-next { background: url(arr-right-big.png) no-repeat center center; width: 110px; height: 110px; }
+.jsphotocradle .originalControl .control-prev { background: url(arr-left-big.png) no-repeat center center; width: 110px; height: 110px; }
+
+.jsphotocradle .originalLoader .loader { background: #111 url(loader.gif) no-repeat center center; width: 90px; height: 54px; border-radius: 9px 9px 9px 9px; opacity: 0.9; }

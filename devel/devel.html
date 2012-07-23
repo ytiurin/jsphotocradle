@@ -1,0 +1,86 @@
+<!doctype html><html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link type="text/css" rel="stylesheet" media="all" href="../skins/darkglass/skin.css" />
+
+<script type="text/javascript" src="../lib/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="../lib/jquery.easing.1.3.js"></script>
+
+<script type="text/javascript" src="jsphotocradle.core.js"></script>
+<script type="text/javascript" src="jsphotocradle.preview.js"></script>
+<script type="text/javascript" src="jsphotocradle.thumbnails.v2.js"></script>
+<script type="text/javascript" src="jsphotocradle.original.js"></script>
+<script type="text/javascript" src="jsphotocradle.preload.js"></script>
+
+</head><body style="background:#aaa;">
+
+<div class="jsphotocradle" style="width:520px;height:340px;margin:170px 0 0 120px;float:left;"></div>
+<div class="jsphotocradle" style="width:340px;height:180px;margin:80px 0 0 120px;float:left;"></div>
+
+<script>
+
+$(function(){
+
+var options = {
+    firstImageIndex: 5,
+    borderWeight: 4
+},
+
+params = {
+    sources: [
+        {
+            thumbnail: '../images/thumbnails/____W_o_o_d_s_t_r_o_l_l_____by_myINQI.jpg',
+            preview: '../images/previews/____W_o_o_d_s_t_r_o_l_l_____by_myINQI.jpg',
+            original: '../images/originals/____W_o_o_d_s_t_r_o_l_l_____by_myINQI.jpg',
+            title: 'Woods troll'
+        }, {
+            thumbnail: '../images/thumbnails/A_frosty_tree_New_Zealand.jpg',
+            preview: '../images/previews/A_frosty_tree_New_Zealand.jpg',
+            original: '../images/originals/A_frosty_tree_New_Zealand.jpg',
+            title: 'A frosty tree New Zealand'
+        }, {
+            thumbnail: '../images/thumbnails/bloodyfog_by_nucu.jpg',
+            preview: '../images/previews/bloodyfog_by_nucu.jpg',
+            original: '../images/originals/bloodyfog_by_nucu.jpg',
+            title: 'Bloody fog'
+        }, {
+            thumbnail: '../images/thumbnails/Blue_Dock_by_dimage.jpg',
+            preview: '../images/previews/Blue_Dock_by_dimage.jpg',
+            original: '../images/originals/Blue_Dock_by_dimage.jpg',
+            title: 'Blue dock'
+        }, {
+            thumbnail: '../images/thumbnails/Daisy_Wallpaper_by_vinyyli.jpg',
+            preview: '../images/previews/Daisy_Wallpaper_by_vinyyli.jpg',
+            original: '../images/originals/Daisy_Wallpaper_by_vinyyli.jpg',
+            title: 'Daisy wallpaper'
+        }, {
+            thumbnail: '../images/thumbnails/Flower HD Wallpapers 5.jpg',
+            preview: '../images/previews/Flower HD Wallpapers 5.jpg',
+            original: '../images/originals/Flower HD Wallpapers 5.jpg',
+            title: 'Flower'
+        }, {
+            thumbnail: '../images/thumbnails/hd_br.jpg',
+            preview: '../images/previews/hd_br.jpg',
+            original: '../images/originals/hd_br.jpg'
+        }, {
+            thumbnail: '../images/thumbnails/I__ll_follow_you_by_c31marius.jpg',
+            preview: '../images/previews/I__ll_follow_you_by_c31marius.jpg',
+            original: '../images/originals/I__ll_follow_you_by_c31marius.jpg',
+            title: 'I\'ll follow you'
+        }, {
+            thumbnail: '../images/thumbnails/ws_Fresh_Green_Trees_1920x1440.jpg',
+            preview: '../images/previews/ws_Fresh_Green_Trees_1920x1440.jpg',
+            original: '../images/originals/ws_Fresh_Green_Trees_1920x1440.jpg',
+            title: 'Fresh green trees'
+        }
+    ]
+};
+
+$( '.jsphotocradle' ).jsphotocradle( params, options );
+
+});
+
+</script>
+
+</body></html>

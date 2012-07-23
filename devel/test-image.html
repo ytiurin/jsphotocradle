@@ -1,0 +1,34 @@
+<!doctype html><html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link type="text/css" rel="stylesheet" media="all" href="../skins/default/skin.css" />
+
+<script type="text/javascript" src="../lib/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="fillimage.js"></script>
+
+</head><body style="background:#aaa;">
+
+<script>
+
+$(function(){
+
+var fimage = new FillImage( '../images/originals/A_frosty_tree_New_Zealand.jpg' );
+fimage.setSize( 300, 400 );
+
+$( document.body ).append( fimage.$element );
+
+// console.log( fimage );
+fimage.preload( function( fimage ) {
+  //alert('preloaded');
+  fimage.$element.hide();
+}).ready( function( fimage ) {
+  //alert('ready');
+  fimage.$element.fadeIn();
+});
+
+});
+
+</script>
+
+</body></html>

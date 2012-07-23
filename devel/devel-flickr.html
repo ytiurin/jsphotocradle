@@ -1,0 +1,29 @@
+<!doctype html><html><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<link type="text/css" rel="stylesheet" media="all" href="../skins/default/skin.css" />
+
+<script type="text/javascript" src="../lib/jquery-1.6.1.js"></script>
+<script type="text/javascript" src="../lib/jquery.easing.1.3.js"></script>
+
+<script type="text/javascript" src="jsphotocradle.core.js"></script>
+<script type="text/javascript" src="jsphotocradle.preview.js"></script>
+<script type="text/javascript" src="jsphotocradle.thumbnails.v2.js"></script>
+<script type="text/javascript" src="jsphotocradle.original.js"></script>
+<script type="text/javascript" src="jsphotocradle.preload.js"></script>
+<script type="text/javascript" src="jsphotocradle.service.flickr.js"></script>
+
+</head><body style="background:#aaa;">
+
+<div id="flickr" style="width:480px;height:340px;position:absolute;left:520px;top:90px;"></div>
+
+<script>
+$(function(){
+  //$('#flickr').jsphotocradle( { service: 'flickr', photoset: '72157626292574195' }, { firstImageIndex: 7, borderWeight: 10 } );
+  //$('#flickr').jsphotocradle( { service: 'flickr', photostream: 'http://www.flickr.com/photos/cliccath/' }, { firstImageIndex: 7, borderWeight: 10 } );
+  $('#flickr').jsphotocradle( { service: 'flickr', gallery: 'http://www.flickr.com/photos/cliccath/galleries/72157622387388906/' }, { firstImageIndex: 7, borderWeight: 10 } );
+});
+</script>
+
+</body></html>

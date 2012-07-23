@@ -1,0 +1,47 @@
+2011-12-10
+- new version of thumbnails added
+
+2011-12-09
+- preload layer added
+
+v.0.4.0
+
+2011-12-03
+- gallery shader added
+
+2011-10-18
+- original controls behaviour changed
+
+2011-10-11
+- window resize reaction added to all layers
+
+2011-10-07
+- added previous buttons
+- known bugs fixed
+
+2011-10-05
+- new thumbnail panel (ghost thumbnails)
+- skins added
+
+2011-09-18
+- position in dom changed
+
+2011-09-17
+- thumbnails migrate to FillImage
+
+2011-09-16
+- remake original view positioning model
+- preview migrate to FillImage
+- fix multiple galleries resources mix
+
+2011-09-11
+- original view global position fix
+- prevent FillImage from selection
+
+2011-09-06
+- FillImage ready event bug fix
+- original view shadow fixed
+
+2011-09-04
+- FillImage construction added
+- original view layer added (prototype only)
