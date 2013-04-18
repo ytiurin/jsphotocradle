@@ -1,0 +1,30 @@
+{
+    "name": "photocradle",
+    "title": "PhotoCradle.js",
+    "description": "An elegant wrap or your photo collection",
+    "keywords": [
+        "ui",
+        "image",
+        "slider",
+        "slideshow"
+    ],
+    "version": "0.4.1",
+    "author": {
+        "name": "Yevhen Tiurin",
+        "email" : "yevhentiurin@gmail.com",
+        "url": "https://github.com/yevhentiurin"
+    },
+    "licenses": [
+    {
+        "type": "LGPLv3",
+        "url": "http://www.gnu.org/licenses/lgpl.txt"
+    }
+    ],
+    "bugs": "https://github.com/yevhentiurin/jsphotocradle/issues",
+    "homepage": "https://github.com/yevhentiurin/jsphotocradle",
+    "demo": "http://yevhentiurin.github.io/jsphotocradle/",
+    "download": "https://github.com/yevhentiurin/jsphotocradle/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.3"
+    }
+}
