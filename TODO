@@ -1,8 +1,0 @@
-2011-12-13
-- make feedback on preview controls
-
-2011-12-11
-- bug on gallery shader z-index
-
-2011-10-18
-- replace all triggerhandler by trigger method

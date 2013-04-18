@@ -3,7 +3,7 @@
 var flickrAPIKey = 'f53c32a7c8812bfe7d8e7c96ff0214e1';
 
 // flickr service
-$.jsphotocradle.service.flickr = function ( params, loadHandler ) {
+$.photoCradle.service.flickr = function ( params, loadHandler ) {
   var 
     flickrParams = {},
     defaultFlickrParams = {

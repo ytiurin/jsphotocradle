@@ -1,4 +1,11 @@
-jsPhotoCradle
-An elegant wrap of your photo collection
+PhotoCradle is an elegant javascript wrap of your photo collection.
 
-Homepage http://yevhentiurin.github.com/jsphotocradle/
+Demo page: http://yevhentiurin.github.com/jsphotocradle/
+
+What is so special about PhotoCradle:
+- Original thumbanails bar
+- On-demand image loading
+- Fast and adaptive fullpage browsing mode
+- Multiple cradles per page
+- Integration with popular services (flickr, picasa)
+- Skins based on CSS theming
