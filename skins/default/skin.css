@@ -1,13 +1,13 @@
-.photoCradle .photoCradle-box { background: #fff; border-radius: 4px 4px 4px 4px; box-shadow: 0px 0px 4px #000; }
+.photocradle .photocradle-box { background: #fff; border-radius: 4px 4px 4px 4px; box-shadow: 0px 0px 4px #000; }
 
-.photoCradle .thumbnails-plane { background: transparent; }
-.photoCradle .thumbnails-slider { background: #fff; border-radius: 4px 4px 4px 4px; }
+.photocradle .thumbnails-plane { background: transparent; }
+.photocradle .thumbnails-slider { background: #fff; border-radius: 4px 4px 4px 4px; }
 
-.photoCradle .previewControl .control-next { background: url(arr-right.png) no-repeat right center; width: 23px; height: 90px; }
-.photoCradle .previewControl .control-prev { background: url(arr-left.png) no-repeat left center; width: 30px; height: 90px; }
-.photoCradle .mini .control-next { background: url(arr-right-mini.png) no-repeat left center; width: 24px; height: 30px; }
-.photoCradle .mini .control-prev { background: url(arr-left-mini.png) no-repeat right center; width: 24px; height: 30px; }
-.photoCradle .originalControl .control-next { background: url(arr-right-big.png) no-repeat center center; width: 110px; height: 110px; }
-.photoCradle .originalControl .control-prev { background: url(arr-left-big.png) no-repeat center center; width: 110px; height: 110px; }
+.photocradle .previewControl .control-next { background: url(arr-right.png) no-repeat right center; width: 23px; height: 90px; }
+.photocradle .previewControl .control-prev { background: url(arr-left.png) no-repeat left center; width: 30px; height: 90px; }
+.photocradle .mini .control-next { background: url(arr-right-mini.png) no-repeat left center; width: 24px; height: 30px; }
+.photocradle .mini .control-prev { background: url(arr-left-mini.png) no-repeat right center; width: 24px; height: 30px; }
+.photocradle .originalControl .control-next { background: url(arr-right-big.png) no-repeat center center; width: 110px; height: 110px; }
+.photocradle .originalControl .control-prev { background: url(arr-left-big.png) no-repeat center center; width: 110px; height: 110px; }
 
-.photoCradle .originalLoader .loader { background: #111 url(loader.gif) no-repeat center center; width: 90px; height: 54px; border-radius: 9px 9px 9px 9px; opacity: 0.9; }
+.photocradle .originalLoader .loader { background: #111 url(loader.gif) no-repeat center center; width: 90px; height: 54px; border-radius: 9px 9px 9px 9px; opacity: 0.9; }

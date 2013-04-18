@@ -1,19 +1,19 @@
 (function( $ ) {
 
 // thumbnails layer
-$.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
+$.photocradle.layer.thumbnails = function( photocradle, $layerElement ) {
   var lr = this;
-  var $photoCradle = $( photoCradle );
+  var $photocradle = $( photocradle );
   var calculate = {};
 
   var $thumbContainer = $( '<div/>' )
     .css({
       position: 'absolute',
       overflow: 'hidden',
-      left: photoCradle.options.borderWeight,
-      top: photoCradle.sizes.preview.height + photoCradle.options.borderWeight,
-      width: photoCradle.sizes.preview.width,
-      height: photoCradle.sizes.thumbnail.height + photoCradle.options.borderWeight * 2
+      left: photocradle.options.borderWeight,
+      top: photocradle.sizes.preview.height + photocradle.options.borderWeight,
+      width: photocradle.sizes.preview.width,
+      height: photocradle.sizes.thumbnail.height + photocradle.options.borderWeight * 2
     })
     .appendTo( $layerElement );
   
@@ -22,7 +22,7 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
       position: 'absolute',
       overflow: 'hidden',
       top: 0,
-      height: photoCradle.sizes.thumbnail.height + photoCradle.options.borderWeight * 2
+      height: photocradle.sizes.thumbnail.height + photocradle.options.borderWeight * 2
     })
     .appendTo( $thumbContainer );
     
@@ -30,18 +30,18 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
     .css({
       position: 'absolute', 
       top: 0,
-      width: photoCradle.sources.length * ( photoCradle.sizes.thumbnail.width + photoCradle.options.borderWeight ) - photoCradle.options.borderWeight,
-      height: photoCradle.sizes.thumbnail.height + photoCradle.options.borderWeight * 2
+      width: photocradle.sources.length * ( photocradle.sizes.thumbnail.width + photocradle.options.borderWeight ) - photocradle.options.borderWeight,
+      height: photocradle.sizes.thumbnail.height + photocradle.options.borderWeight * 2
     })
     .appendTo($thumbRails);
     
   // create thumbnails elements
   var thumbnailList = [];
-  var hoverThumbIndex = photoCradle.pointer.active;
+  var hoverThumbIndex = photocradle.pointer.active;
   
   calculate.thumbOpacity = function ( i ) {
     var step = 0.1;
-    var opacityByActive =  1 - ( Math.abs( i - photoCradle.pointer.active ) * step );
+    var opacityByActive =  1 - ( Math.abs( i - photocradle.pointer.active ) * step );
     var opacityByHover =  1 - ( Math.abs( i - hoverThumbIndex ) * step );
     opacity = Math.max( opacityByActive, opacityByHover );
     opacity = Math.max( opacity, step );
@@ -49,13 +49,13 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
     return opacity;
   };
     
-  $( photoCradle.sources ).each( function( i, img_opts ) {
-    var thumb = photoCradle.getFillImage( 'thumbnail', i );
+  $( photocradle.sources ).each( function( i, img_opts ) {
+    var thumb = photocradle.getFillImage( 'thumbnail', i );
     
     thumb.$element
       .css({
-        left: i * ( photoCradle.sizes.thumbnail.width + photoCradle.options.borderWeight ),
-        top: photoCradle.options.borderWeight,
+        left: i * ( photocradle.sizes.thumbnail.width + photocradle.options.borderWeight ),
+        top: photocradle.options.borderWeight,
         opacity: 0,
         cursor: 'pointer'
       })
@@ -64,21 +64,21 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
     // react on thumbnail click
     thumb.$element
       .click( function() {
-          if ( i == photoCradle.pointer.active )
+          if ( i == photocradle.pointer.active )
               return;
           
-          photoCradle.setActive( i );
+          photocradle.setActive( i );
       } );
       
     thumbnailList.push( thumb );
   } );
   
-  $photoCradle.bind( 'changeActive', function () {
+  $photocradle.bind( 'changeActive', function () {
     $thumbSlider.stop( true, true ).animate( { left: calculate.sliderLeft() }, 800, 'easeOutExpo' );
   } );
   
   var getVisibleRange = function () {
-    var visibleRange = [ photoCradle.pointer.active - 2, photoCradle.pointer.active + 2 ];
+    var visibleRange = [ photocradle.pointer.active - 2, photocradle.pointer.active + 2 ];
     
     if ( visibleRange[1] >= thumbnailList.length ) 
       visibleRange = [ ( thumbnailList.length - 5 ), ( thumbnailList.length - 1 ) ];
@@ -104,23 +104,23 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
     return arguments.callee;
   })();
   
-  $photoCradle.bind( 'changeActive', updateThumbnailsOpacity );
+  $photocradle.bind( 'changeActive', updateThumbnailsOpacity );
   
   calculate.sliderLeft = function() {
-    var shift = photoCradle.$element.offset().left + photoCradle.options.borderWeight;
+    var shift = photocradle.$element.offset().left + photocradle.options.borderWeight;
     var left = 
-      thumbnailList[ photoCradle.pointer.active ]
+      thumbnailList[ photocradle.pointer.active ]
       ? (
-        Math.round( photoCradle.sizes.preview.width / 2 ) 
-        - parseInt( thumbnailList[ photoCradle.pointer.active ].$element.css( 'left' ) ) 
-        - Math.round( photoCradle.sizes.thumbnail.width / 2 )
+        Math.round( photocradle.sizes.preview.width / 2 ) 
+        - parseInt( thumbnailList[ photocradle.pointer.active ].$element.css( 'left' ) ) 
+        - Math.round( photocradle.sizes.thumbnail.width / 2 )
         + shift
       )
       : 0
     ;
     var minLeft = shift;
     left = left > minLeft ? minLeft : left;
-    var maxLeft = -1 * ( $thumbSlider.width() - photoCradle.sizes.preview.width ) + shift;
+    var maxLeft = -1 * ( $thumbSlider.width() - photocradle.sizes.preview.width ) + shift;
     left = left < maxLeft ? maxLeft : left;
     
     return left;
@@ -129,7 +129,7 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
   // update containers size and position on window resize
   var updatePosition = (function () {
     $thumbRails.css({
-      left: -1 * ( photoCradle.$element.offset().left + photoCradle.options.borderWeight ),
+      left: -1 * ( photocradle.$element.offset().left + photocradle.options.borderWeight ),
       width: $( window ).width()
     });
         
@@ -140,7 +140,7 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
     return arguments.callee;
   })();
     
-  $photoCradle.bind( 'resize', function () { updatePosition(); } );
+  $photocradle.bind( 'resize', function () { updatePosition(); } );
   
   lr.expanded = false;
   // add behaviour to thumbnails rails
@@ -160,7 +160,7 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
           
           setTimeout( function () {
             thumb.$element.animate( { opacity: calculate.thumbOpacity( i ) }, 800 );
-          }, Math.abs( i - photoCradle.pointer.active ) * 50 );
+          }, Math.abs( i - photocradle.pointer.active ) * 50 );
         } );
         
         setTimeout( function () {
@@ -182,7 +182,7 @@ $.photoCradle.layer.thumbnails = function( photoCradle, $layerElement ) {
           thumb.$element.unbind( 'mouseenter' );
         } );
         
-        hoverThumbIndex = photoCradle.pointer.active;
+        hoverThumbIndex = photocradle.pointer.active;
         updateThumbnailsOpacity();
         
         $thumbContainer.css( { overflow: 'hidden' } );

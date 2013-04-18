@@ -1,9 +1,9 @@
 (function( $ ) {
 
 // preload layer
-$.photoCradle.layer.preload = function( photoCradle, $layerElement ) {
+$.photocradle.layer.preload = function( photocradle, $layerElement ) {
   var lr = this;
-  var $photoCradle = $( photoCradle );
+  var $photocradle = $( photocradle );
   
   var thumb;
   var pointerName;
@@ -14,28 +14,28 @@ $.photoCradle.layer.preload = function( photoCradle, $layerElement ) {
     if ( thumb != undefined )
       thumb.$element.detach();
             
-    var previewImage = photoCradle.getFillImage( 'preview', photoCradle.pointer[pointerName] );
+    var previewImage = photocradle.getFillImage( 'preview', photocradle.pointer[pointerName] );
     
     previewImage.ready( function () {
       if ( thisOpRand != opRand )
         return;
           
-      thumb = photoCradle.getFillImage( 'thumbnail', photoCradle.pointer[pointerName] );
+      thumb = photocradle.getFillImage( 'thumbnail', photocradle.pointer[pointerName] );
       
       if ( pointerName == 'next' ) {
-        var thumbLeft = photoCradle.sizes.preview.width + photoCradle.options.borderWeight * 4;
+        var thumbLeft = photocradle.sizes.preview.width + photocradle.options.borderWeight * 4;
         var thumbAnimDir = 1;
       
       } else if ( pointerName == 'previous' ) {
-        var thumbLeft = ( photoCradle.sizes.thumbnail.width + photoCradle.options.borderWeight * 2 ) * -1;
+        var thumbLeft = ( photocradle.sizes.thumbnail.width + photocradle.options.borderWeight * 2 ) * -1;
         var thumbAnimDir = -1;
       };
       
       thumb.$element
         .appendTo( $layerElement )
         .css({
-          left: thumbLeft + photoCradle.options.borderWeight * 8 * thumbAnimDir,
-          top: ( photoCradle.sizes.preview.height - photoCradle.sizes.thumbnail.height ) / 2 + photoCradle.options.borderWeight,
+          left: thumbLeft + photocradle.options.borderWeight * 8 * thumbAnimDir,
+          top: ( photocradle.sizes.preview.height - photocradle.sizes.thumbnail.height ) / 2 + photocradle.options.borderWeight,
           opacity: 0
         })
         .animate({ 
@@ -46,7 +46,7 @@ $.photoCradle.layer.preload = function( photoCradle, $layerElement ) {
     } );
   };
   
-  $photoCradle
+  $photocradle
     .bind( 'previewControlNextMouseEnter previewControlNextClick', function () { pointerName = 'next'; opRand = Math.random(); bringThumb(); } )
     .bind( 'previewControlNextMouseLeave', function () { opRand = Math.random(); thumb.$element.detach(); })
     .bind( 'previewControlPreviousMouseEnter previewControlPreviousClick', function () { pointerName = 'previous'; opRand = Math.random(); bringThumb(); } )

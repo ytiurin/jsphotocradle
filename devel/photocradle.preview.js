@@ -1,25 +1,25 @@
 (function( $ ) {
 
 // preview layer
-$.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
+$.photocradle.layer.preview = function( photocradle, $layerElement ) {
   var lr = this;
   
-  lr.preview = photoCradle.getFillImage( 'preview', 'active' );
+  lr.preview = photocradle.getFillImage( 'preview', 'active' );
   
   var $frameElement = $( '<div/>' )
     .css({
       position: 'relative',
       overflow: 'hidden',
-      left: photoCradle.options.borderWeight,
-      top: photoCradle.options.borderWeight,
-      width: photoCradle.sizes.preview.width,
-      height: photoCradle.sizes.preview.height
+      left: photocradle.options.borderWeight,
+      top: photocradle.options.borderWeight,
+      width: photocradle.sizes.preview.width,
+      height: photocradle.sizes.preview.height
     })
     .mouseenter( function() {
-      $( photoCradle ).trigger( 'previewMouseEnter' );
+      $( photocradle ).trigger( 'previewMouseEnter' );
     })
     .mouseleave( function() {
-      $( photoCradle ).trigger( 'previewMouseLeave' );
+      $( photocradle ).trigger( 'previewMouseLeave' );
     })
     .append( lr.preview.$element );
     
@@ -32,23 +32,23 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
       oldPreview.$element
         .stop(true, true)
         .animate({
-          left: ( photoCradle.sizes.preview.width + parseInt( photoCradle.options.borderWeight * 5 )) * (direction == 'left' ? -1 : 1)
+          left: ( photocradle.sizes.preview.width + parseInt( photocradle.options.borderWeight * 5 )) * (direction == 'left' ? -1 : 1)
         }, 300, 'easeOutExpo', function() {
           oldPreview.$element.detach();
         });
     }
 
-    lr.preview = photoCradle.getFillImage( 'preview', 'active' )
+    lr.preview = photocradle.getFillImage( 'preview', 'active' )
       .ready( function( preview ) {
         if ( preview.stop )
           return;
           
         preview
-          .setSize( photoCradle.sizes.preview.width, photoCradle.sizes.preview.height )
+          .setSize( photocradle.sizes.preview.width, photocradle.sizes.preview.height )
           .$element
             .appendTo( $frameElement )
             .css({ 
-              left: ( photoCradle.sizes.preview.width + parseInt( photoCradle.options.borderWeight * 5 ) ) * (direction == 'left' ? 1 : -1)
+              left: ( photocradle.sizes.preview.width + parseInt( photocradle.options.borderWeight * 5 ) ) * (direction == 'left' ? 1 : -1)
             })
             .stop(true, true)
             .animate( { left: 0 }, 300, 'easeOutExpo' );
@@ -56,16 +56,16 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
   };
     
   // react on image change
-  $( photoCradle ).bind( 'changeActive', { photoCradle: photoCradle }, function( e ) {
-    var photoCradle = e.data.photoCradle;
+  $( photocradle ).bind( 'changeActive', { photocradle: photocradle }, function( e ) {
+    var photocradle = e.data.photocradle;
     
     // slide left
-    if ( photoCradle.pointer.preactive == photoCradle.pointer.previous ) {
+    if ( photocradle.pointer.preactive == photocradle.pointer.previous ) {
       slidePreviews( 'left' );
       return;
   
     // slide right
-    } else if ( photoCradle.pointer.preactive == photoCradle.pointer.next ) {
+    } else if ( photocradle.pointer.preactive == photocradle.pointer.next ) {
     slidePreviews( 'right' );
       return;
     };
@@ -73,10 +73,10 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
     // fade in
     lr.preview.$element.detach();
     
-    lr.preview = photoCradle.getFillImage( 'preview', 'active' )
+    lr.preview = photocradle.getFillImage( 'preview', 'active' )
       .ready( function( preview ) {
         preview
-          .setSize( photoCradle.sizes.preview.width, photoCradle.sizes.preview.height )
+          .setSize( photocradle.sizes.preview.width, photocradle.sizes.preview.height )
           .$element
             .hide()
             .appendTo( $frameElement )
@@ -107,7 +107,7 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
   
   var previewZoomed = false;
   
-  $( photoCradle )
+  $( photocradle )
     // react on preview mouseenter
     .bind( 'previewMouseEnter', function() {
       previewZoomed = true;
@@ -115,10 +115,10 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
       setTimeout( function() {
         if ( previewZoomed )
           previewZoom({
-            width: Math.round( photoCradle.sizes.preview.width * 1.1 ),
-            height: Math.round( photoCradle.sizes.preview.height * 1.1 ),
-            left: -1 * Math.round( photoCradle.sizes.preview.width * 0.05 ),
-            top: -1 * Math.round( photoCradle.sizes.preview.height * 0.05 )
+            width: Math.round( photocradle.sizes.preview.width * 1.1 ),
+            height: Math.round( photocradle.sizes.preview.height * 1.1 ),
+            left: -1 * Math.round( photocradle.sizes.preview.width * 0.05 ),
+            top: -1 * Math.round( photocradle.sizes.preview.height * 0.05 )
           });
       }, 100);
     })
@@ -130,8 +130,8 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
       setTimeout( function() {
         if ( !previewZoomed )
           previewZoom({
-            width: photoCradle.sizes.preview.width,
-            height: photoCradle.sizes.preview.height,
+            width: photocradle.sizes.preview.width,
+            height: photocradle.sizes.preview.height,
             left: 0,
             top: 0
           })
@@ -142,23 +142,23 @@ $.photoCradle.layer.preview = function( photoCradle, $layerElement ) {
 };
 
 // preview controls
-$.photoCradle.layer.previewControl = function( photoCradle, $layerElement ) {
-  var $photoCradle = $( photoCradle );
+$.photocradle.layer.previewControl = function( photocradle, $layerElement ) {
+  var $photocradle = $( photocradle );
   
   var $controlPreview = $( '<div/>' )
     .css({
       position: 'absolute',
       cursor: 'pointer',
-      left: Math.round( photoCradle.sizes.preview.width / 4 ),
-      top: photoCradle.options.borderWeight,
-      width: Math.round( photoCradle.sizes.preview.width / 2 ),
-      height: photoCradle.sizes.preview.height,
+      left: Math.round( photocradle.sizes.preview.width / 4 ),
+      top: photocradle.options.borderWeight,
+      width: Math.round( photocradle.sizes.preview.width / 2 ),
+      height: photocradle.sizes.preview.height,
       // ie hack
       background: '#fff',
       opacity: 0
     })
     .click( function() {
-      $photoCradle.trigger( 'previewClick' );
+      $photocradle.trigger( 'previewClick' );
     })
     .appendTo( $layerElement );
   
@@ -171,9 +171,9 @@ $.photoCradle.layer.previewControl = function( photoCradle, $layerElement ) {
       // opacity: 0
     })
         
-    .click( function () { $photoCradle.trigger( 'previewControlNextClick' ); })
-    .mouseenter( function () { $photoCradle.trigger( 'previewControlNextMouseEnter' ); })
-    .mouseleave( function () { $photoCradle.trigger( 'previewControlNextMouseLeave' ); })
+    .click( function () { $photocradle.trigger( 'previewControlNextClick' ); })
+    .mouseenter( function () { $photocradle.trigger( 'previewControlNextMouseEnter' ); })
+    .mouseleave( function () { $photocradle.trigger( 'previewControlNextMouseLeave' ); })
     .appendTo( $layerElement )
   ;
     
@@ -187,34 +187,34 @@ $.photoCradle.layer.previewControl = function( photoCradle, $layerElement ) {
       // opacity: 0
     })
         
-    .click( function () { $photoCradle.trigger( 'previewControlPreviousClick' ); })
-    .mouseenter( function () { $photoCradle.trigger( 'previewControlPreviousMouseEnter' ); })
-    .mouseleave( function () { $photoCradle.trigger( 'previewControlPreviousMouseLeave' ); })
+    .click( function () { $photocradle.trigger( 'previewControlPreviousClick' ); })
+    .mouseenter( function () { $photocradle.trigger( 'previewControlPreviousMouseEnter' ); })
+    .mouseleave( function () { $photocradle.trigger( 'previewControlPreviousMouseLeave' ); })
         
     .appendTo( $layerElement )
   ;
     
-  if (photoCradle.sizes.preview.height <= 240) {
+  if (photocradle.sizes.preview.height <= 240) {
     $layerElement.addClass('mini');
   };
   
   $controlNext.css({
-    left: Math.round(photoCradle.sizes.preview.width - $controlNext.width() + photoCradle.options.borderWeight),
-    top: Math.round((photoCradle.sizes.preview.height - $controlNext.height()) / 2 + photoCradle.options.borderWeight)
+    left: Math.round(photocradle.sizes.preview.width - $controlNext.width() + photocradle.options.borderWeight),
+    top: Math.round((photocradle.sizes.preview.height - $controlNext.height()) / 2 + photocradle.options.borderWeight)
   });
 
   $controlPrev.css({
-    left: photoCradle.options.borderWeight,
-    top: Math.round((photoCradle.sizes.preview.height - $controlNext.height()) / 2 + photoCradle.options.borderWeight)
+    left: photocradle.options.borderWeight,
+    top: Math.round((photocradle.sizes.preview.height - $controlNext.height()) / 2 + photocradle.options.borderWeight)
   });
   
   // controls behaviour
-  $photoCradle
+  $photocradle
     .bind( 'previewControlNextClick', function () {
-      photoCradle.setActive( photoCradle.pointer.next );
+      photocradle.setActive( photocradle.pointer.next );
     })
     .bind( 'previewControlPreviousClick', function () {
-      photoCradle.setActive( photoCradle.pointer.previous );
+      photocradle.setActive( photocradle.pointer.previous );
     })
   ;
   
@@ -229,7 +229,7 @@ $.photoCradle.layer.previewControl = function( photoCradle, $layerElement ) {
     // }, 100);
   // };
   
-  // $photoCradle
+  // $photocradle
     // .bind( 'previewMouseEnter', function ( ) {
       // controlsVisible = true;
       // handleControlOpacity( 0.5 );

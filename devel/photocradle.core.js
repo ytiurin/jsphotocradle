@@ -4,7 +4,7 @@ var debug = true;
 debug = window.console != undefined ? debug : false;
 
 //***************************
-$.photoCradle = {
+$.photocradle = {
   params: {
     sources: [],
     service: ''
@@ -21,44 +21,44 @@ $.photoCradle = {
 };
 
 //***************************
-$.fn.photoCradle = function( params, options ) {
+$.fn.photocradle = function( params, options ) {
   var photoCradleParams = {}, photoCradleOptions = {};
-  $.extend( photoCradleParams, $.photoCradle.params, params );
-  $.extend( photoCradleOptions, $.photoCradle.options, options );
+  $.extend( photoCradleParams, $.photocradle.params, params );
+  $.extend( photoCradleOptions, $.photocradle.options, options );
   
   return this.each( function () {
-    var photoCradle = new PhotoCradle( this, photoCradleOptions );
+    var photocradle = new PhotoCradle( this, photoCradleOptions );
     
     var sourcesLoadHandler = function ( sources ) {
-      photoCradle.setSources( sources );
+      photocradle.setSources( sources );
     };
     
     params.service 
-      ? $.photoCradle.service[ params.service ]( params, sourcesLoadHandler )
+      ? $.photocradle.service[ params.service ]( params, sourcesLoadHandler )
       : sourcesLoadHandler( params.sources )
     ;
   } );
 };
 
-// photoCradle constructor
+// photocradle constructor
 function PhotoCradle( element, options ) {
-  var photoCradle = this;
+  var photocradle = this;
   
-  photoCradle.options = options;
-  photoCradle.pointer = { active: 0, preactive: 0, next: 0, previous: 0 };
-  photoCradle.$container = $( element );
+  photocradle.options = options;
+  photocradle.pointer = { active: 0, preactive: 0, next: 0, previous: 0 };
+  photocradle.$container = $( element );
   
   var initSizes = (function() {
     var sizes = {};
-    sizes.previewWidth = Math.round( photoCradle.$container.width() - photoCradle.options.borderWeight * 2 );
-    sizes.previewHeight = Math.round( ( photoCradle.$container.height() - photoCradle.options.borderWeight * 3 ) / 5 * 4 );
-    sizes.thumbnailWidth = Math.round( ( photoCradle.$container.width() - photoCradle.options.borderWeight * 6 ) / 5 );
-    sizes.thumbnailHeight = Math.round( ( photoCradle.$container.height() - photoCradle.options.borderWeight * 3 ) / 5 );
+    sizes.previewWidth = Math.round( photocradle.$container.width() - photocradle.options.borderWeight * 2 );
+    sizes.previewHeight = Math.round( ( photocradle.$container.height() - photocradle.options.borderWeight * 3 ) / 5 * 4 );
+    sizes.thumbnailWidth = Math.round( ( photocradle.$container.width() - photocradle.options.borderWeight * 6 ) / 5 );
+    sizes.thumbnailHeight = Math.round( ( photocradle.$container.height() - photocradle.options.borderWeight * 3 ) / 5 );
     
     return sizes;
   })();
   
-  photoCradle.sizes = {
+  photocradle.sizes = {
     preview: {
       width: initSizes.previewWidth,
       height: initSizes.previewHeight
@@ -73,16 +73,16 @@ function PhotoCradle( element, options ) {
     }
   };
   
-  photoCradle.$area = $( '<div class="photoCradle" />' )
+  photocradle.$area = $( '<div class="photocradle" />' )
     .appendTo( document.body );
   
-  photoCradle.$element = $( '<div class="photoCradle-box" />' )
+  photocradle.$element = $( '<div class="photocradle-box" />' )
     .css( { 
       position: 'absolute',
-      left: photoCradle.$container.offset().left,
-      top: photoCradle.$container.offset().top,
-      width: photoCradle.$container.width(), 
-      height: photoCradle.$container.height()
+      left: photocradle.$container.offset().left,
+      top: photocradle.$container.offset().top,
+      width: photocradle.$container.width(), 
+      height: photocradle.$container.height()
     } )
     // make gallery container overlap other elements
     .mouseover( function () {
@@ -93,23 +93,23 @@ function PhotoCradle( element, options ) {
         zIndex = elZIndex > zIndex ? elZIndex : zIndex;
       });
       
-      photoCradle.$element.css( { zIndex: ++zIndex } );
+      photocradle.$element.css( { zIndex: ++zIndex } );
     })
-    .appendTo( photoCradle.$area );
+    .appendTo( photocradle.$area );
   
   // update position on window resize
   $( window ).resize( function () {
-    photoCradle.$element
+    photocradle.$element
       .css( { 
-        left: photoCradle.$container.offset().left,
-        top: photoCradle.$container.offset().top
+        left: photocradle.$container.offset().left,
+        top: photocradle.$container.offset().top
       } );
       
-    $( photoCradle ).trigger( 'resize' );
+    $( photocradle ).trigger( 'resize' );
   });
   
   // add shader
-  var $shader = $( '<div class="photoCradle-shader"/>' )
+  var $shader = $( '<div class="photocradle-shader"/>' )
     .css({ 
       background: '#000',
       position: 'fixed', 
@@ -120,12 +120,12 @@ function PhotoCradle( element, options ) {
       opacity: 0
     })
     .hide()
-    .appendTo( photoCradle.$area );
+    .appendTo( photocradle.$area );
     
   // show/hide shader on hover
   var shaderVisible = false;
   
-  photoCradle.$element
+  photocradle.$element
     .mouseenter( function () {
       var showShader = function () {
         $shader
@@ -150,34 +150,34 @@ function PhotoCradle( element, options ) {
       setTimeout( function () { if ( !shaderVisible ) hideShader(); }, 100);
     } );
   
-  //debug ? console.log( photoCradle ) : null;
+  //debug ? console.log( photocradle ) : null;
 };
 
-// photoCradle prototype
+// photocradle prototype
 PhotoCradle.prototype = {
   // set image sources
   setSources: function( sources ) {
-    var photoCradle = this;
+    var photocradle = this;
     
-    photoCradle.sources = sources;
+    photocradle.sources = sources;
     
     if ( !sources.length )
       return;
       
-    photoCradle.setActive( photoCradle.options.firstImageIndex );
+    photocradle.setActive( photocradle.options.firstImageIndex );
     
     // build layers
     var z = 0;
-    $.each( $.photoCradle.layer, function( name, layer ) {
+    $.each( $.photocradle.layer, function( name, layer ) {
       var $layerElement = $( '<div/>' )
         .css({
           position: 'absolute',
           zIndex: 1000 + z
         })
         .addClass( name )
-        .appendTo( photoCradle.$element );
+        .appendTo( photocradle.$element );
         
-      new layer( photoCradle, $layerElement );
+      new layer( photocradle, $layerElement );
       
       z++;
     });
@@ -185,26 +185,26 @@ PhotoCradle.prototype = {
   
   // changes active image index
   setActive: function( active ) {
-    var photoCradle = this;
-    var pointer = photoCradle.pointer;
+    var photocradle = this;
+    var pointer = photocradle.pointer;
     
     pointer.preactive = pointer.active;
     pointer.active = parseInt( active );
-    pointer.next = photoCradle.sources.length == ( pointer.active + 1 ) ? 0 : ( pointer.active + 1 );
-    pointer.previous = -1 == ( pointer.active - 1 ) ? photoCradle.sources.length - 1 : pointer.active - 1;
+    pointer.next = photocradle.sources.length == ( pointer.active + 1 ) ? 0 : ( pointer.active + 1 );
+    pointer.previous = -1 == ( pointer.active - 1 ) ? photocradle.sources.length - 1 : pointer.active - 1;
     
-    $( photoCradle ).trigger( "changeActive" );
+    $( photocradle ).trigger( "changeActive" );
     
     return this;
   },
   
   // creates and returns a fillimage
   getFillImage: function( type, ind ) {
-    var photoCradle = this;
-    ind = ind == 'active' ? photoCradle.pointer.active : ind;
+    var photocradle = this;
+    ind = ind == 'active' ? photocradle.pointer.active : ind;
     
-    var fimage = new FillImage( photoCradle.sources[ ind ] ? photoCradle.sources[ ind ][ type ] : '' );
-    fimage.setSize( photoCradle.sizes[ type ].width, photoCradle.sizes[ type ].height );
+    var fimage = new FillImage( photocradle.sources[ ind ] ? photocradle.sources[ ind ][ type ] : '' );
+    fimage.setSize( photocradle.sizes[ type ].width, photocradle.sizes[ type ].height );
     
     return fimage;
   }
@@ -314,6 +314,6 @@ FillImage.prototype = {
 };
 
 // custom service
-$.photoCradle.service.custom = function () {};
+$.photocradle.service.custom = function () {};
 
 })( jQuery );

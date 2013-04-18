@@ -1,7 +1,7 @@
 (function( $ ) {
 
 // picasa service
-$.photoCradle.service.picasa = function ( params, loadHandler ) {
+$.photocradle.service.picasa = function ( params, loadHandler ) {
   var 
     picasaParams = {},
     defaultPicasaParams = {};
