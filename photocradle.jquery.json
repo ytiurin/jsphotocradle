@@ -1,7 +1,7 @@
 {
     "name": "photocradle",
     "title": "PhotoCradle.js",
-    "description": "An elegant wrap or your photo collection",
+    "description": "PhotoCradle is an elegant javascript widget wrapping your photo collection.",
     "keywords": [
         "ui",
         "image",
