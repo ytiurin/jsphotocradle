@@ -7,7 +7,7 @@
  * Licensed under the LGPL Version 3 license.
  * http://www.gnu.org/licenses/lgpl.txt
  *
- * Date: April 18, 2013
+ * Date: October 31, 2013
  **/
 
 (function( $ ) {
