@@ -1,5 +1,19 @@
 (function( $ ) {
 
+$.photocradle.flickrImageSizes = 
+{
+  square:       'sq',//75x75
+  largeSquare:  'q',//150x150
+  thumbnail:    't',//100x75
+  small:        's',//240x180
+  small320:     'n',//320x240
+  medium:       'm',//500x375
+  medium640:    'z',//640x480
+  medium800:    'c',//800x600
+  large:        'b',//1024x768
+  original:     'o'//2400x1800
+};
+
 var flickrAPIKey = 'f53c32a7c8812bfe7d8e7c96ff0214e1';
 
 // flickr service
@@ -8,20 +22,18 @@ $.photocradle.service.flickr = function ( params, loadHandler ) {
     flickrParams = {},
     defaultFlickrParams = {
       photoset: '',
-      limit: 100
+      limit: 100,
+      imageSizes: 
+      {
+        thumbnail: $.photocradle.flickrImageSizes.thumbnail,
+        preview: $.photocradle.flickrImageSizes.medium,
+        original: $.photocradle.flickrImageSizes.large
+      }
     };
+  console.log(params);
+  flickrParams = $.extend( true, flickrParams, defaultFlickrParams, params );
   
-  $.extend( flickrParams, defaultFlickrParams, params );
-  
-  var size = {
-      square: 's',
-      thumbnail: 't',
-      small: 'm',
-      large: 'b',
-      original: 'o'
-    }
-    
-    , flickrRequest = function( data, callback ) {
+  var flickrRequest = function( data, callback ) {
       $.getJSON( 'http://api.flickr.com/services/rest/', data, callback );
     }
     
@@ -31,9 +43,9 @@ $.photocradle.service.flickr = function ( params, loadHandler ) {
       var sources = [];
       $.each( flickrPhotos, function( i, p ) {
         sources.push( {
-          thumbnail: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', size.thumbnail, '.jpg' ].join( '' ),
-          preview: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', size.small, '.jpg' ].join( '' ),
-          original: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', size.large, '.jpg' ].join( '' ),
+          thumbnail: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.thumbnail, '.jpg' ].join( '' ),
+          preview: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.preview, '.jpg' ].join( '' ),
+          original: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.original, '.jpg' ].join( '' ),
           title: p.title
         } );
       } );

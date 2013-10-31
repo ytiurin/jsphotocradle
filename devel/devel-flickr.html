@@ -16,13 +16,23 @@
 
 </head><body style="background:#aaa;">
 
-<div id="flickr" style="width:480px;height:340px;position:absolute;left:520px;top:90px;"></div>
+<div id="flickr" style="width:1024px;height:768px;position:absolute;left:520px;top:90px;"></div>
 
 <script>
 $(function(){
   //$('#flickr').photocradle( { service: 'flickr', photoset: '72157626292574195' }, { firstImageIndex: 7, borderWeight: 10 } );
   //$('#flickr').photocradle( { service: 'flickr', photostream: 'http://www.flickr.com/photos/cliccath/' }, { firstImageIndex: 7, borderWeight: 10 } );
-  $('#flickr').photocradle( { service: 'flickr', gallery: 'http://www.flickr.com/photos/cliccath/galleries/72157622387388906/' }, { firstImageIndex: 7, borderWeight: 10 } );
+  $('#flickr').photocradle( 
+    { 
+      service: 'flickr', 
+      gallery: 'http://www.flickr.com/photos/cliccath/galleries/72157622387388906/',
+      imageSizes: 
+      {
+        thumbnail: $.photocradle.flickrImageSizes.small320,
+        preview: $.photocradle.flickrImageSizes.medium640,
+        original: $.photocradle.flickrImageSizes.original
+      } 
+    }, { firstImageIndex: 7, borderWeight: 10 } );
 });
 </script>
 
