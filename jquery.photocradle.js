@@ -7,7 +7,7 @@
  * Licensed under the LGPL Version 3 license.
  * http://www.gnu.org/licenses/lgpl.txt
  *
- * Date: April 18, 2013
+ * Date: November 22, 2014
  **/
 
 (function( $ ) {
@@ -1114,11 +1114,11 @@ $.photocradle.service.flickr = function ( params, loadHandler ) {
         original: $.photocradle.flickrImageSizes.large
       }
     };
-  console.log(params);
+
   flickrParams = $.extend( true, flickrParams, defaultFlickrParams, params );
   
   var flickrRequest = function( data, callback ) {
-      $.getJSON( 'http://api.flickr.com/services/rest/', data, callback );
+      $.getJSON( 'https://api.flickr.com/services/rest/', data, callback );
     }
     
     , getPhotoSources = function( flickrPhotos ) {
@@ -1127,9 +1127,9 @@ $.photocradle.service.flickr = function ( params, loadHandler ) {
       var sources = [];
       $.each( flickrPhotos, function( i, p ) {
         sources.push( {
-          thumbnail: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.thumbnail, '.jpg' ].join( '' ),
-          preview: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.preview, '.jpg' ].join( '' ),
-          original: [ 'http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.original, '.jpg' ].join( '' ),
+          thumbnail: [ 'https://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.thumbnail, '.jpg' ].join( '' ),
+          preview: [ 'https://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.preview, '.jpg' ].join( '' ),
+          original: [ 'https://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_', flickrParams.imageSizes.original, '.jpg' ].join( '' ),
           title: p.title
         } );
       } );
