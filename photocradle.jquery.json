@@ -8,7 +8,7 @@
         "slider",
         "slideshow"
     ],
-    "version": "0.4.2",
+    "version": "0.4.3",
     "author": {
         "name": "Yevhen Tiurin",
         "email" : "yevhentiurin@gmail.com",
@@ -20,10 +20,10 @@
         "url": "http://www.gnu.org/licenses/lgpl.txt"
     }
     ],
-    "bugs": "https://github.com/yevhentiurin/jsphotocradle/issues",
-    "homepage": "https://github.com/yevhentiurin/jsphotocradle",
-    "demo": "http://yevhentiurin.github.io/jsphotocradle/",
-    "download": "https://github.com/yevhentiurin/jsphotocradle/archive/master.zip",
+    "bugs": "https://github.com/ytiurin/jsphotocradle/issues",
+    "homepage": "https://github.com/ytiurin/jsphotocradle",
+    "demo": "https://ytiurin.github.io/jsphotocradle/",
+    "download": "https://raw.githubusercontent.com/ytiurin/jsphotocradle/master/builds/jquery.photocradle-0.4.3.min.js",
     "dependencies": {
         "jquery": ">=1.3"
     }
