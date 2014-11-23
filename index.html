@@ -9,29 +9,27 @@
 
 <script type="text/javascript" src="lib/jquery-1.6.1.js"></script>
 <script type="text/javascript" src="lib/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="jquery.photocradle.min.js"></script>
+<script type="text/javascript" src="jquery.photocradle-0.4.3.min.js"></script>
+
+<script>
+  $(function() {
+    $('#layout').addClass('bg'+parseInt(Math.random()*5));
+  })
+</script>
 
 </head><body>
 
 <div id="layout">
-  <div id="header">
-    <h1 id="logo">PhotoCradle.js</h1>
-    <h2 id="slogan">An elegant wrap of your photo collection.</h2>
+  <div id="layer1">
+    <div id="header">
+      <h1 id="logo">PhotoCradle.js</h1>
+      <h2 id="slogan">An elegant wrap of your photo collection.</h2>
+    </div>
+    
+    <div id="flickr-photostream" style="width:480px;height:340px;"></div>
+    
+    <p>Get the <a href="https://raw.githubusercontent.com/ytiurin/jsphotocradle/master/builds/jquery.photocradle-0.4.3.min.js">latest version</a> or <a href="https://github.com/ytiurin/jsphotocradle">fork it</a> on github.</p>
   </div>
-  
-  <div id="flickr-photostream" style="width:480px;height:340px;"></div>
-  
-  <h3>What is this?</h3>
-  <p>Did you ever wish to show photos you store on а service like Flickr or Picasa on your personal website or blog? PhotoCradle is designed to deliver photos from 3rd party services to your website and wrap it into a smooth customizable slideshow.</p>
-  
-  <h3>How it works?</h3>
-  <p>PhotoCradle is a client based javascript driven application. It uses popular photo services APIs to get URL addresses of specific photos and builds dynamic CSS customizable slideshow.</p>
-  
-  <h3>Links</h3>
-  <p>Project's <a href="https://github.com/yevhentiurin/jsphotocradle">home</a> on github.</p>
-  <p>Download from <a href="https://github.com/yevhentiurin/jsphotocradle/zipball/master">here</a>.</p>
-  <p>Requires <a href="http://jquery.com/">jQuery</a>.</p>
-  <p>Better user experience with <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery Easing Plugin</a>.</p>
 </div>
 
 <script type="text/javascript">
