@@ -1118,7 +1118,7 @@ $.photocradle.service.flickr = function ( params, loadHandler ) {
   flickrParams = $.extend( true, flickrParams, defaultFlickrParams, params );
   
   var flickrRequest = function( data, callback ) {
-      $.getJSON( 'http://api.flickr.com/services/rest/', data, callback );
+      $.getJSON( 'https://api.flickr.com/services/rest/', data, callback );
     }
     
     , getPhotoSources = function( flickrPhotos ) {
